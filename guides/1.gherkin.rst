@@ -568,15 +568,15 @@ Séparez les simplement par des espaces :
     Si un Tag est fourni pour une ``Fonctionnalité``, Behat va automatiquement
     l'assigner à tous les ``Scénarios`` et ``Plans de scénarios`` enfants également.
 
-Gherkin in Many Languages
+Gherkin traduit dans d'autres langues
 -------------------------
 
-Gherkin is available in many languages, allowing you to write stories
-using localized keywords from your language. In other words, if you
-speak French, you can use the word ``Fonctionnalité`` instead of ``Feature``.
+Gherkin est disponible dans plusieurs langues, vous autorisant à rédiger vos Stories
+en utilisant des mot-clefs localisés dans votre langue. C'est le cas du français,
+comme vous avez pu le constater.
 
-To check if Behat and Gherkin support your language (for example, French),
-run:
+Pour voir si Behat et Gherkin supportent une langue (par exemple le français),
+exécutez :
 
 .. code-block:: bash
 
@@ -584,9 +584,9 @@ run:
 
 .. note::
 
-    Keep in mind that any language different from ``en`` should be explicitly
-    marked with a ``# language: ...`` comment at the beginning of your
-    ``*.feature`` file:
+    Gardez à l'esprit que pour toutes les languages différentes de l'anglais (``en``),
+    il faut explicitement démarrer le fichier ``*.feature`` par le commentaire
+    ``# language: ...`` :
 
     .. code-block:: gherkin
 
@@ -594,7 +594,9 @@ run:
         Fonctionnalité: ...
           ...
 
-    This way your features will hold all the information about its content
-    type, which is very important for methodologies like BDD, and will also give
-    Behat the ability to have multilanguage features in one suite.
+    De cette façon, vos fonctionnalités contiendront directement l'ensemble des
+    informations sur leurs types de contenu, chose primordiale pour la pratique
+    des méthodes comme le Développement Piloté par le Comportement. Cela permettra
+    également à Behat de supporter les fonctionnalités multilingues dans cette
+    suite de tests.
 
