@@ -330,7 +330,7 @@ effectue (ou, en utilisant la métaphore de Robert C. Martin, la l'état de tran
     Voici deux bons exemples d'utilisation de **Quand** :
 
     * Interagir avec une page web (la librairie Mink offre des outils conviviaux
-    pour le web) :
+      pour le web) :
 
         .. code-block:: gherkin
 
@@ -340,38 +340,43 @@ effectue (ou, en utilisant la métaphore de Robert C. Martin, la l'état de tran
             Quand je presse "Connexion"
 
     * Interagir avec une librairie en lignes de commandes Interact with some CLI
-    library :
+      library :
 
         .. code-block:: gherkin
 
             Quand j'exécute la commande "ls -la"
 
-Thens
+Alors
 ~~~~~
 
-The purpose of **Then** steps is to **observe outcomes**. The observations
-should be related to the business value/benefit in your feature description.
-The observations should inspect the output of the system (a report, user
-interface, message, command output) and not something deeply buried inside it
-(that has no business value and is instead part of the implementation).
+L'objectif des étapes **Alors** est **d'observer les résultats". Les observations
+doivent être mises en relation avec les bénéfices métiers décrits dans la fonctionnalité.
+Les observations doivent surveiller les sorties du système (les rapports, l'interface
+utilisateur, les messages, les sorties d'écran), et non pas ce qui est profondément enfoui
+dans le système (qui n'a aucune valeur commerciale, mais est plutôt un moyen pour
+la mise en oeuvre).
 
-* Verify that something related to the Given+When is (or is not) in the output
-* Check that some external system has received the expected message (was an
-  email with specific content successfully sent?)
+Voici deux bons exemples d'utilisation de **Alors** :
+
+* Vérifier que quelque chose, relatif au "Etant donné" + "Quand", est (ou n'est pas)
+  présent dans le flux de sortie.
+* Regarder si quelque chose externe au système a bien reçu un message attendu
+  (est-ce qu'un email, avec tel contenu, a bien été envoyé ?)
 
 .. code-block:: gherkin
 
-    When I call "echo hello"
-    Then the output should be "hello"
+    Quand j'éxecute la commande "echo bonjour"
+    Alors la sortie devrait être "bonjour"
 
 .. note::
 
-    While it might be tempting to implement Then steps to just look in the
-    database – resist the temptation. You should only verify output that is
-    observable by the user (or external system). Database data itself is
-    only visible internally to your application, but is then finally exposed
-    by the output of your system in a web browser, on the command-line or an
-    email message.
+    Bien qu'il puisse être tentant de mettre en place des outils pour inspecter
+    la base de données, résistez à la tentation.
+
+    Vous ne devriez vérifier que ce qu'i est observable par l'utilisateur (ou un
+    système externe). Les données de votre base de données ne sont visibles que
+    pour votre application, mais sont au bout du compte visibles quelque part
+    pour l'utilisateur par un message, un écran, un email...
 
 And, But
 ~~~~~~~~
