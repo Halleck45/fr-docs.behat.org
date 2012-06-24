@@ -271,48 +271,53 @@ Robert C. Martin a écrit un `bon billet <http://blog.objectmentor.com/articles/
 sur les concepts "Etant donné - Quand - Alors" du BDD, dans lequel il les pense
 comme un Automate fini (également désigné en Anglais par FSM, ou Finite State Machine).
 
-Givens
+Etant donné
 ~~~~~~
 
-The purpose of **Given** steps is to **put the system in a known state** before
-the user (or external system) starts interacting with the system (in the When
-steps). Avoid talking about user interaction in givens. If you have worked with
-use cases, givens are your preconditions.
+L'objectif des étapes **Etant donné que** est de **mettre le système dans un état
+connu**, ceci avant que l'utilisateur (ou une entité externe) ne commence à
+intéragir avec le système (dans l'étape "Quand"). Il faut éviter de parler
+des interactions de l'utilisateur dans les étapes "Etant donné".
+
+Si vous avez l'habitude de travailler avec des Cas d'Utilisation, cette étape
+correspond à vos "Préconditions".
 
 .. note::
 
-    Two good examples of using **Givens** are:
+    Voici deux bons exemples d'utilisation de **Etant donné** :
 
-    * To create records (model instances) or set up the database:
-
-        .. code-block:: gherkin
-
-            Given there are no users on site
-            Given the database is clean
-
-    * Authenticate a user (An exception to the no-interaction recommendation.
-      Things that "happened earlier" are ok):
+    * Pour créer des enregistrements ou pour initialiser la base de données :
 
         .. code-block:: gherkin
 
-            Given I am logged in as "Everzet"
+            Etant donné qu'il n'y à aucun utilisateur sur le site
+            Etant donné que la base de données est vierge
+
+    * Pour authentifier l'utilisateur (une exception au principe de non-interaction
+      mentionné plus haut) :
+
+        .. code-block:: gherkin
+
+            Etant donné que je suis connecté en tant que "Jean-François"
 
 .. tip::
 
-    It's ok to call into the layer "inside" the UI layer here (in symfony: talk
-    to the models).
+    Il est autorisé ici d'intéragir directement avec les couches inférieures
+    plutôt qu'avec la couche graphique (en Symfony ou Zend Framework :
+    communiquer avec les models)
 
-And for all the symfony users out there, we recommend using a Given step with a
-`tables`_ arguments to set up records instead of fixtures. This way you can
-read the scenario all in one place and make sense out of it without having to
-jump between files:
+Et nous recommandons aux utilisateurs de Symfony d'utiliser les étapes "Etant
+donné" avec des paramètres de type `tableaux`, afin d'initialiser directement des
+enregistrements plutôt que des Données de test (fixtures). De cette manière, quand
+vous lirez le scénario, vous trouverez directeemnt toutes les informations
+nécessaires sans avoir à sauter d'un fichier à l'autre :
 
 .. code-block:: gherkin
 
-    Given there are users:
-      | username | password | email               |
-      | everzet  | 123456   | everzet@knplabs.com |
-      | fabpot   | 22@222   | fabpot@symfony.com  |
+    Etant donné qu'il y a les utilisateurs:
+      | nom      | motdepasse | email               |
+      | everzet  | 123456     | everzet@knplabs.com |
+      | fabpot   | 22@222     | fabpot@symfony.com  |
 
 Whens
 ~~~~~
