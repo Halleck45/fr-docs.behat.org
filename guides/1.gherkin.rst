@@ -433,7 +433,7 @@ Cependant, vous aurez parfois envie de recevoir une structure de données plus r
 dans votre définition.
 
 C'est à ça que servent les Arguments multi-lignes. Il sont rédigés sur plusieurs
-lignes, directement après une étape, et sont passés à al définition d'étape comme
+lignes, directement après une étape, et sont passés à la définition d'étape comme
 dernier paramètre.
 
 Les Arguments multi-lignes sont utilisables de deux manières : Les `tableaux`_ ou
@@ -596,7 +596,7 @@ exécutez :
 
     De cette façon, vos fonctionnalités contiendront directement l'ensemble des
     informations sur leurs types de contenu, chose primordiale pour la pratique
-    des méthodes comme le Développement Piloté par le Comportement. Cela permettra
+    de méthodes comme le Développement Piloté par le Comportement. Cela permettra
     également à Behat de supporter les fonctionnalités multilingues dans cette
     suite de tests.
 
