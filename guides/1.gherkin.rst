@@ -484,42 +484,41 @@ ou comme une sortie pour un "Alors".
     A table is injected into a definition as a ``TableNode`` object, from
     (méthode ``TableNode::getHash()``) ou par ligne (``TableNode::getRowsHash()``).
 
-PyStrings
+Expressions longues
 ~~~~~~~~~
 
-Multiline Strings (also known as PyStrings) are handy for specifying a larger
-piece of text. This is done using the so-called PyString syntax. The text
-should be offset by delimiters consisting of three double-quote marks
-(``"""``) on lines by themselves:
+Les Chaînes multi-lignes (aussi connues sous le nom de Expressions longues, ou PyStrings 
+en anglais) sont pratiques lorsqu'on veut fournir une expression littérale assez longue.
+Cela se fait en utilisant une syntaxe spécifique (syntaxe PyString). Le texte 
+doit être encadré par des délimiteurs, qui consistent en trois guillemets (``"""``) :
 
 .. code-block:: gherkin
 
-    Scenario:
-      Given a blog post named "Random" with:
+    Scénario:
+      Étant donné un billet de blog, nommé "Alétaoire", avec :
         """
-        Some Title, Eh?
+        Un titre, eh ?
         ===============
-        Here is the first paragraph of my blog post.
+        Ceci est le premier paragraphe de mon blog
         Lorem ipsum dolor sit amet, consectetur adipiscing
         elit.
         """
 
 .. note::
 
-    The inspiration for PyString comes from Python where ``"""`` is used to
-    delineate docstrings, much in the way ``/* ... */`` is used for multiline
-    docblocks in PHP.
+    Les Expressions longues sont inspirées de Python, dans lequel ``"""`` est utilisé
+    pour délimiter des blocs de documentation (comme ``/* ... */`` en PHP).
 
 .. tip::
 
-    In your step definition, there's no need to find this text and match it in
-    your regular expression. The text will automatically be passed as the last
-    argument into the step definition method. For example:
+    Il n'est pas nécessaire dans votre Definition d'étape de rechercher et de matcher
+    ce texte dans votre expression régulière. Le texte sera automatiquement passé
+    comme dernier paramètre de votre méthode. Par exemple :
 
     .. code-block:: php
 
         /**
-         * @Given /a blog post named "([^"]+)" with:/
+         * @Given /un billet de blog, nommé "([^"]+)", avec :/
          */
         public function blogPost($title, PyStringNode $markdown)
         {
@@ -528,18 +527,17 @@ should be offset by delimiters consisting of three double-quote marks
 
 .. note::
 
-    PyStrings are stored in a ``PyStringNode`` instance, which you can simply
-    convert to a string with ``(string) $pystring`` or ``$pystring->getRaw()``
-    as in the example above.
+    Les Expressions longues sont stockées sous forme d'objet ``PyStringNode``, que 
+    vous pouvez convertir en Chaîne de caractères simplement en faisant 
+    ``(string) $pystring`` ou ``$pystring->getRaw()`` dans cet exemple.
 
 .. note::
 
-    Indentation of the opening ``"""`` is not important, although common practice
-    is two spaces in from the enclosing step. The indentation inside the triple
-    quotes, however, is significant. Each line of the string passed to the step
-    definition's callback will be de-indented according to the opening ``"""``.
-    Indentation beyond the column of the opening ``"""`` will therefore be
-    preserved.
+    L'indentation des ``"""`` ouvrants n'est pas importante, bien que l'habitude
+    veut qu'ils soient précédés de deux espaces. L'indentation à l'intérieur
+    des trois guillemets, elle, est importante. Chaque ligne de l'Expression longue
+    passée à la méthode de définition sera indentée selon le délimiteur ouvrant ``"""``.
+    L'indentation à l'intérieur des délimliteurs sera donc préservée.
 
 Tags
 ----
