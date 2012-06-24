@@ -542,31 +542,31 @@ doit être encadré par des délimiteurs, qui consistent en trois guillemets (``
 Tags
 ----
 
-Tags are a great way to organize your features and scenarios. Consider this
-example:
+les Tags sont un moyen facile d'organiser vos fonctionnalités et vos scénarios.
+Considérez cet exemple :
 
 .. code-block:: gherkin
 
-    @billing
-    Feature: Verify billing
+    @facturation
+    Fonctionnalité: Vérifier une facture
 
       @important
-      Scenario: Missing product description
+      Scénario: Description de produit manquante
 
-      Scenario: Several products
+      Scénario: Plusieurs produits
 
-A Scenario or Feature can have as many tags as you like, just separate them
-with spaces:
+Un scénario ou une fonctionnalité peut avoir autant de tags que vous le souhaitez.
+Séparez les simplement par des espaces :
 
 .. code-block:: gherkin
 
-    @billing @bicker @annoy
-    Feature: Verify billing
+    @facturation @monTag @yeah
+    Fonctionnalité: Vérifier une facture
 
 .. note::
 
-    If a tag exists on a ``Feature``, Behat will assign that tag to all
-    child ``Scenarios`` and ``Scenario Outlines`` too.
+    Si un Tag est fourni pour une ``Fonctionnalité``, Behat va automatiquement
+    l'assigner à tous les ``Scénarios`` et ``Plans de scénarios`` enfants également.
 
 Gherkin in Many Languages
 -------------------------
