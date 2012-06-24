@@ -439,48 +439,50 @@ dernier paramètre.
 Les Arguments multi-lignes sont utilisables de deux manières : Les `tableaux`_ ou
 les `Expressions longues`_.
 
-Tables
+Tableaux
 ~~~~~~
 
-Tables as arguments to steps are handy for specifying a larger data set -
-usually as input to a Given or as expected output from a Then.
+Les tableaux fournis comme paramètre sont pratiques pour spécifier un ensemble
+plus vaste de données - le plus souvent comme une entrée pour un "Étant donné",
+ou comme une sortie pour un "Alors".
 
 .. code-block:: gherkin
 
-    Scenario:
-      Given the following people exist:
-        | name  | email           | phone |
-        | Aslak | aslak@email.com | 123   |
-        | Joe   | joe@email.com   | 234   |
-        | Bryan | bryan@email.org | 456   |
+    Scénario:
+      Étant donné que les personnes suivantes existent :
+        | nom   | email           | téléphone |
+        | Aslak | aslak@email.com | 123       |
+        | Joe   | joe@email.com   | 234       |
+        | Bryan | bryan@email.org | 456       |
 
 .. note::
 
-    Don't be confused with tables from `scenario outlines`_ - syntactically
-    they are identical, but have a different purpose.
+    Ne confondez pas les tableaux avec les `Plans de scénario`_. ; ils sont
+    syntaxiquement identiques, mais ont des buts différents.
 
 .. tip::
 
-    A matching definition for this step looks like this:
+    Une définition d'étape pour cette étape devrait ressembler à ceci :
 
     .. code-block:: php
 
         /**
-         * @Given /the following people exist:/
+         * @Given /les personnes suivantes existent:/
          */
-        public function thePeopleExist(TableNode $table)
+        public function lesPersonnesSuivantesExistent(TableNode $table)
         {
             $hash = $table->getHash();
             foreach ($hash as $row) {
-                // $row['name'], $row['email'], $row['phone']
+                // $row['nom'], $row['email'], $row['téléphone']
             }
         }
 
 .. note::
 
+    Un tableau est fourni à la définition sous forme d'un objet ``TableNode``,
+    à partir duquel vous pouvez récupérer les informations par colonne
     A table is injected into a definition as a ``TableNode`` object, from
-    which you can get hash by columns (``TableNode::getHash()`` method) or by
-    rows (``TableNode::getRowsHash()``).
+    (méthode ``TableNode::getHash()``) ou par ligne (``TableNode::getRowsHash()``).
 
 PyStrings
 ~~~~~~~~~
