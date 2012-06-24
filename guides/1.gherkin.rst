@@ -319,31 +319,32 @@ nécessaires sans avoir à sauter d'un fichier à l'autre :
       | everzet  | 123456     | everzet@knplabs.com |
       | fabpot   | 22@222     | fabpot@symfony.com  |
 
-Whens
+Quand
 ~~~~~
 
-The purpose of **When** steps is to **describe the key action** the user
-performs (or, using Robert C. Martin's metaphor, the state transition).
+L'objectif des étapes **Quand** est de **décrire l'action-clef** que l'utilisateur
+effectue (ou, en utilisant la métaphore de Robert C. Martin, la l'état de transition).
 
 .. note::
 
-    Two good examples of **Whens** use are:
+    Voici deux bons exemples d'utilisation de **Quand** :
 
-    * Interact with a web page (the Mink library gives you many web-friendly
-      ``When`` steps out of the box):
-
-        .. code-block:: gherkin
-
-            When I am on "/some/page"
-            When I fill "username" with "everzet"
-            When I fill "password" with "123456"
-            When I press "login"
-
-    * Interact with some CLI library (call commands and record output):
+    * Interagir avec une page web (la librairie Mink offre des outils conviviaux
+    pour le web) :
 
         .. code-block:: gherkin
 
-            When I call "ls -la"
+            Quand je suis sir "une/page"
+            Quand je remplis "identifiant" avec "Jean-François"
+            Quand je remplis "mot de passe" avec "123456"
+            Quand je presse "Connexion"
+
+    * Interagir avec une librairie en lignes de commandes Interact with some CLI
+    library :
+
+        .. code-block:: gherkin
+
+            Quand j'exécute la commande "ls -la"
 
 Thens
 ~~~~~
