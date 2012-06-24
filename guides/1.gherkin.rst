@@ -424,18 +424,20 @@ Behat interprète les étapes qui commencent par Et ou Mais exactement comme
 toutes les autres étapes. Behat ne fait pas de différence entre les étapes, mais,
 ne l'oubliez pas, c'est à vous de le faire !
 
-Multiline Arguments
+Arguments multi-lignes
 -------------------
 
-The regular expression matching in `steps`_ lets you capture small strings from
-your steps and receive them in your step definitions. However, there are times
-when you want to pass a richer data structure from a step to a step definition.
+L'expression régulière qui intercepte les `étapes`_ vous permet de capturer les
+courtes expressions de vos étapes et de les recevoir comme des définitions d'étapes.
+Cependant, vous aurez parfois envie de recevoir une structure de données plus riche
+dans votre définition.
 
-This is what multiline step arguments are for. They are written on lines
-immediately following a step, and are passed to the step definition method as
-the last argument.
+C'est à ça que servent les Arguments multi-lignes. Il sont rédigés sur plusieurs
+lignes, directement après une étape, et sont passés à al définition d'étape comme
+dernier paramètre.
 
-Multiline step arguments come in two flavours: `tables`_ or `pystrings`_.
+Les Arguments multi-lignes sont utilisables de deux manières : Les `tableaux`_ ou
+les `Expressions longues`_.
 
 Tables
 ~~~~~~
