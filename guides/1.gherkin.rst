@@ -36,7 +36,7 @@ la plupart des lignes écrite en Gherkin comment par un mot-clef spécial :
       Je dois tirer un bénéfice de cette fonctionnalité
 
       Scénario: Une description du scénario
-          Etant donné que [un contexte]
+          Étant donné que [un contexte]
           Et [plus d'informations sur le contexte]
           Quand [un événement]
           Et [un autre événement]
@@ -70,7 +70,7 @@ L'interpréteur découpe les informations en Fonctionnalités, Scénarios puis
    continue....
 
 Quand vous exécutez la fonctionnalité, l'expression contenue dans chaque Étape
-(après les mot-clefs comment ``Etant donné``, ``Et``, ``Quand``, etc.) est liée
+(après les mot-clefs comment ``Étant donné``, ``Et``, ``Quand``, etc.) est liée
 à une expression régulière qui va la lier à une fonction PHP. Vous pouvez en
 savoir plus sur le matching d'expression et leur exécution dans
 :doc:`/guides/2.definitions`.
@@ -93,7 +93,7 @@ du dossier dans lesquels ils sont situés.
     d'ajouter le commentaire ``# language: fr`` en haut de votre Fonctionnalité.
 
 Chaque Scénario contient une liste d'`Étapes`, qui doivent débuter par le
-mot-clef ``Etant donné``, ``Quand``, ``Alors``, ``Et`` ou ``Mais``. Behat ne
+mot-clef ``Étant donné``, ``Quand``, ``Alors``, ``Et`` ou ``Mais``. Behat ne
 fait aucune différence entre ces mot-clefs, mais ils sont important pour les
 humains. Voici un exemple :
 
@@ -105,7 +105,7 @@ humains. Voici un exemple :
       d'acheter du café à toutes heures
 
       Scénario: Acheter le dernier café
-        Etant donné qu'il reste 1 café dans la machine
+        Étant donné qu'il reste 1 café dans la machine
         Et que j'ai mis 1 dollar
         Quand j'appuie sur le bouton de la machine
         Alors je devrai recevoir un café
@@ -127,17 +127,17 @@ Les scénarios suivants sont composés de 3 étapes :
 .. code-block:: gherkin
 
   Scenario: Wilson publie sur son propre blog
-    Etant donné que je suis connecté en tant que Wilson
+    Étant donné que je suis connecté en tant que Wilson
     Quand je tente de publier pour "Le Blog de Wilson"
     Alors je dois voir "Votre article a été publié"
 
   Scenario: Wilson échoue lorsqu'il tente de publier sur un autre blog
-    Etant donné que je suis connecté en tant que Wilson
+    Étant donné que je suis connecté en tant que Wilson
     Quand je tente de publier pour "Le Blog de Greg"
     Alors je dois voir "Hé! Ce n'est pas votre blog !"
 
   Scenario: Greg publie sur son propre blog
-    Etant donné que je suis connecté en tant que Greg
+    Étant donné que je suis connecté en tant que Greg
     Quand je tente de publier pour "Le Blog de Greg"
     Alors je dois voir "Votre article a été publié"
 
@@ -150,12 +150,12 @@ fastidieux et répétitif :
 .. code-block:: gherkin
 
     Scenario: En manger 5 sur 12
-      Etant donné qu'il y a 12 concombres
+      Étant donné qu'il y a 12 concombres
       Quand je mange 5 concombres
       Alors je dois avoir 7 concombres
 
     Scenario: En manger 5 sur 20
-      Etant donné qu'il y a 20 concombres
+      Étant donné qu'il y a 20 concombres
       Quand je mange 5 concombres
       Alors je dois avoir 15 concombres
 
@@ -165,7 +165,7 @@ un tableau juste derrière votre scénario :
 .. code-block:: gherkin
 
     Plan de scénario: Manger
-      Etant donné qu'il y a <initial> concombres
+      Étant donné qu'il y a <initial> concombres
       Quand je mange <mangés> concombres
       Alors je dois avoir <restant> concombres
 
@@ -184,7 +184,7 @@ Le Plan de scénario utilise des marqueurs, qui sont contenus à l'intérieur de
 
 .. code-block:: gherkin
 
-    Etant donné <Je suis un marqueur valide>
+    Étant donné <Je suis un marqueur valide>
 
 Représentez-vous un marqueur comme une variable. Il sera remplacé par une 
 valeur bien réelle issue du tableau d'``Exemples:``. La valeur substituée au
@@ -206,7 +206,7 @@ Lorsqu'on exécute la première ligne de notre exemple :
 .. code-block:: gherkin
 
     Plan de scénario: Manger
-      Etant donné qu'il y a <initial> concombres
+      Étant donné qu'il y a <initial> concombres
       Quand je mange <mangés> concombres
       Alors je dois avoir <restant> concombres
 
@@ -221,7 +221,7 @@ Le scénario qui est en train de s'exécuter alors est :
 
     Plan de scénario: Manger
       # <initial> est remplacé par 12 :
-      Etant donné qu'il y a <initial> concombres
+      Étant donné qu'il y a <initial> concombres
       # <mangés> est remplacé par 5 :
       Quand je mange <mangés> concombres
       # <restant> est remplacé par 7 :
@@ -259,7 +259,7 @@ fondamentale c'est que le Contexte sera appelé avant chacun de vos scénarios
 Steps
 -----
 
-Les `Fonctionnalités`_ sont composées d'étapes, c'est-à-dire `Etant donné`_,
+Les `Fonctionnalités`_ sont composées d'étapes, c'est-à-dire `Étant donné`_,
 `Quand`_ and `Alors`_.
 
 Behat ne distingue pas techniquement ces trois types d'étapes. Cependant, nous
@@ -268,37 +268,37 @@ choisis avec soin parce qu'ils répondent à leur objectif, objectif que vous
 devez garder en tête pour faire du Développement Piloté par le Comportement.
 
 Robert C. Martin a écrit un `bon billet <http://blog.objectmentor.com/articles/2008/11/27/the-truth-about-bdd>`_
-sur les concepts "Etant donné - Quand - Alors" du BDD, dans lequel il les pense
+sur les concepts "Étant donné - Quand - Alors" du BDD, dans lequel il les pense
 comme un Automate fini (également désigné en Anglais par FSM, ou Finite State Machine).
 
-Etant donné
+Étant donné
 ~~~~~~
 
-L'objectif des étapes **Etant donné que** est de **mettre le système dans un état
+L'objectif des étapes **Étant donné que** est de **mettre le système dans un état
 connu**, ceci avant que l'utilisateur (ou une entité externe) ne commence à
 intéragir avec le système (dans l'étape "Quand"). Il faut éviter de parler
-des interactions de l'utilisateur dans les étapes "Etant donné".
+des interactions de l'utilisateur dans les étapes "Étant donné".
 
 Si vous avez l'habitude de travailler avec des Cas d'Utilisation, cette étape
 correspond à vos "Préconditions".
 
 .. note::
 
-    Voici deux bons exemples d'utilisation de **Etant donné** :
+    Voici deux bons exemples d'utilisation de **Étant donné** :
 
     * Pour créer des enregistrements ou pour initialiser la base de données :
 
         .. code-block:: gherkin
 
-            Etant donné qu'il n'y à aucun utilisateur sur le site
-            Etant donné que la base de données est vierge
+            Étant donné qu'il n'y à aucun utilisateur sur le site
+            Étant donné que la base de données est vierge
 
     * Pour authentifier l'utilisateur (une exception au principe de non-interaction
       mentionné plus haut) :
 
         .. code-block:: gherkin
 
-            Etant donné que je suis connecté en tant que "Jean-François"
+            Étant donné que je suis connecté en tant que "Jean-François"
 
 .. tip::
 
@@ -306,7 +306,7 @@ correspond à vos "Préconditions".
     plutôt qu'avec la couche graphique (en Symfony ou Zend Framework :
     communiquer avec les models)
 
-Et nous recommandons aux utilisateurs de Symfony d'utiliser les étapes "Etant
+Et nous recommandons aux utilisateurs de Symfony d'utiliser les étapes "Étant
 donné" avec des paramètres de type `tableaux`, afin d'initialiser directement des
 enregistrements plutôt que des Données de test (fixtures). De cette manière, quand
 vous lirez le scénario, vous trouverez directeemnt toutes les informations
@@ -314,7 +314,7 @@ nécessaires sans avoir à sauter d'un fichier à l'autre :
 
 .. code-block:: gherkin
 
-    Etant donné qu'il y a les utilisateurs:
+    Étant donné qu'il y a les utilisateurs:
       | nom      | motdepasse | email               |
       | everzet  | 123456     | everzet@knplabs.com |
       | fabpot   | 22@222     | fabpot@symfony.com  |
@@ -358,7 +358,7 @@ la mise en oeuvre).
 
 Voici deux bons exemples d'utilisation de **Alors** :
 
-* Vérifier que quelque chose, relatif au "Etant donné" + "Quand", est (ou n'est pas)
+* Vérifier que quelque chose, relatif au "Étant donné" + "Quand", est (ou n'est pas)
   présent dans le flux de sortie.
 * Regarder si quelque chose externe au système a bien reçu un message attendu
   (est-ce qu'un email, avec tel contenu, a bien été envoyé ?)
@@ -378,49 +378,51 @@ Voici deux bons exemples d'utilisation de **Alors** :
     pour votre application, mais sont au bout du compte visibles quelque part
     pour l'utilisateur par un message, un écran, un email...
 
-And, But
+Et, Mais
 ~~~~~~~~
 
-If you have several Given, When or Then steps you can write:
+Si vous avez plusieurs étapes "Étant donné", "Quand" ou "Alors", vous pouvez écrire :
 
 .. code-block:: gherkin
 
-    Scenario: Multiple Givens
-      Given one thing
-      Given an other thing
-      Given yet an other thing
-      When I open my eyes
-      Then I see something
-      Then I don't see something else
+    Scénario: Plusieurs Étant donné
+      Étant donné que quelque chose
+      Étant donné autre chose
+      Étant donné une autre chose yet an other thing
+      Quand j'ouvre mes yeux
+      Alors je vois quelque chose
+      Alors je ne vois rien d'autre
 
-Or you can use **And** or **But** steps, allowing your Scenario to read more
-fluently:
-
-.. code-block:: gherkin
-
-    Scenario: Multiple Givens
-      Given one thing
-      And an other thing
-      And yet an other thing
-      When I open my eyes
-      Then I see something
-      But I don't see something else
-
-If you prefer, you can indent scenario steps in a more *programmatic* way, much
-in the same way your actual code is indented to provide visual context:
+Ou bien vous pouvez utiliser les étapes **Et** ou **Mais**, qui vous permettent
+de lire vos scénarios plus facilement :
 
 .. code-block:: gherkin
 
-    Scenario: Multiple Givens
-      Given one thing
-        And an other thing
-        And yet an other thing
-      When I open my eyes
-      Then I see something
-        But I don't see something else
+    Scénario: Plusieurs Étant donné
+      Étant donné que quelque chose
+      Et que autre chose
+      Et que une autre chose yet an other thing
+      Quand j'ouvre mes yeux
+      Alors je vois quelque chose
+      Mais je ne vois rien d'autre
 
-Behat interprets steps beginning with And or But exactly the same as all other
-steps. It doesn't differ between them - you should!
+Si vous le préferez, vous pouvez même indenter vos étapes d'une manière plus usuelle en
+*programmation*, pour mettre votre code actuel en retrait et offrir un meilleur
+aspect visuel :
+
+.. code-block:: gherkin
+
+    Scénario: Plusieurs Étant donné
+      Étant donné que quelque chose
+               Et que autre chose
+               Et que une autre chose yet an other thing
+            Quand j'ouvre mes yeux
+            Alors je vois quelque chose
+             Mais je ne vois rien d'autre
+
+Behat interprète les étapes qui commencent par Et ou Mais exactement comme
+toutes les autres étapes. Behat ne fait pas de différence entre les étapes, mais,
+ne l'oubliez pas, c'est à vous de le faire !
 
 Multiline Arguments
 -------------------
